@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function useHeroScrollAnimation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const navRef = useRef<HTMLElement>(null);
+
   const headerRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLDivElement>(null);
   const heroSectionRef = useRef<HTMLElement>(null);
@@ -100,16 +100,7 @@ export function useHeroScrollAnimation() {
               videoFrames.frame = targetFrame;
               render();
 
-              // Navigation fade out (0-10%)
-              if (navRef.current) {
-                if (progress <= 0.1) {
-                  const navProgress = progress / 0.1;
-                  const opacity = 1 - navProgress;
-                  gsap.set(navRef.current, { opacity });
-                } else {
-                  gsap.set(navRef.current, { opacity: 0 });
-                }
-              }
+            
 
               // Header zoom and fade (0-25%)
               if (headerRef.current) {
@@ -210,5 +201,5 @@ export function useHeroScrollAnimation() {
     { dependencies: [] },
   );
 
-  return { canvasRef, navRef, headerRef, heroImgRef, heroSectionRef };
+  return { canvasRef, headerRef, heroImgRef, heroSectionRef };
 }

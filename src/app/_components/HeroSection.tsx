@@ -1,17 +1,16 @@
 "use client";
 
 import HeroContent from "./HeroContent";
-import Navigation from "./Navigation";
-import ScrollDownIndicator from "./ScrollDownIndicator";
+
 import { useHeroScrollAnimation } from "./useHeroScrollAnimation";
 
 export default function HeroSection() {
-  const { canvasRef, navRef, headerRef, heroSectionRef } =
+  const { canvasRef, headerRef, heroSectionRef } =
     useHeroScrollAnimation();
 
   return (
     <>
-      <Navigation ref={navRef} />
+   
 
       <section
         ref={heroSectionRef}
